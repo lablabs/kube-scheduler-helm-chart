@@ -89,6 +89,17 @@ rules:
   verbs:
   - list
   - watch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - watch
+  - list
+  - update
+  - create
+  - patch
 {{- with .Values.rbac.extraClusterRoleRules }}
 {{- toYaml . | nindent 2 }}
 {{- end}}
