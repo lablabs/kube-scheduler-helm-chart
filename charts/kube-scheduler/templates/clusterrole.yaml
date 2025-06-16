@@ -82,6 +82,13 @@ rules:
   - events
   verbs:
   - '*'
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - volumeattachments
+  verbs:
+  - list
+  - watch
 {{- with .Values.rbac.extraClusterRoleRules }}
 {{- toYaml . | nindent 2 }}
 {{- end}}
