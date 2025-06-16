@@ -12,34 +12,21 @@ config:
     kind: KubeSchedulerConfiguration
     leaderElection:
       leaderElect: false
-      resourceName: custom-scheduler
-      resourceNamespace: kube-system
     profiles:
-    - schedulerName: custom-scheduler
-      pluginConfig:
-      - name: NodeResourcesFit
-        args:
-          scoringStrategy:
-            resources:
-            - name: cpu
-              weight: 1
-            - name: memory
-              weight: 1
-            type: MostAllocated
+    - schedulerName: project-scheduler
       plugins:
         score:
-          enabled:
-          - name: NodeResourcesFit
-            weight: 1
-      leaderElect: false
-      pluginApiVersion: kubescheduler.config.k8s.io/v1
+          disabled:
+          - name: 'NodeResourcesBalancedAllocation'
+          - name: 'NodeResourcesLeastAllocated'
+          - name: 'PodTopologySpread'
       pluginConfig:
-      - args:
-          scoringStrategy:
-            resources:
-            - name: cpu
-              weight: 1
-            - name: memory
-              weight: 1
-            type: MostAllocated
-        name: NodeResourcesFit
+        - args:
+            scoringStrategy:
+              resources:
+              - name: cpu
+                weight: 1
+              - name: memory
+                weight: 1
+              type: MostAllocated
+          name: NodeResourcesFit
