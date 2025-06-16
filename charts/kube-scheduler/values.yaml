@@ -63,7 +63,7 @@ livenessProbe:
   httpGet:
     path: /healthz
     port: 10259
-    scheme: HTTPS  # Use HTTPS if you have TLS enabled, HTTP otherwise
+    scheme: HTTP  # Use HTTPS if you have TLS enabled, HTTP otherwise
   # initialDelaySeconds: 10
   # timeoutSeconds: 15
   # failureThreshold: 8
@@ -73,7 +73,7 @@ readinessProbe:
   httpGet:
     path: /healthz
     port: 10259
-    scheme: HTTPS  # Use HTTPS if scheduler uses TLS, otherwise HTTP
+    scheme: HTTP  # Use HTTPS if scheduler uses TLS, otherwise HTTP
   # initialDelaySeconds: 5
   # timeoutSeconds: 5
   # periodSeconds: 10
