@@ -20,6 +20,8 @@ serviceAccount:
   # Service account name
   name: ""
 
+deploymentStrategy: {}
+
 # Dedicated pod related Annotations and Labels
 podAnnotations: {}
 podLabels: {}

@@ -15,6 +15,7 @@ A Helm chart for Kubernetes custom scheduler
 | config.create | bool | `true` |  |
 | config.kubeSchedulerConfig | string | `""` |  |
 | config.name | string | `""` |  |
+| deploymentStrategy | object | `{}` |  |
 | extraArgs[0] | string | `"--authentication-skip-lookup=true"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
