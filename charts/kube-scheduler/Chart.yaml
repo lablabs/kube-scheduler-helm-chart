@@ -1,15 +1,14 @@
 apiVersion: v2
 name: kube-scheduler
-description: A Helm chart for Kubernetes custom scheduler
-version: 0.2.0
+description: A Helm chart for Kubernetes scheduler
+version: 0.2.1
 keywords:
-- k8s
-- kubernetes
-- scheduler
-- customscheduler
-- kubescheduler
+  - k8s
+  - kubernetes
+  - scheduler
+  - kube-scheduler
 sources:
-  - https://github.com/lablabs/terraform-aws-eks-kube-scheduler/blob/master/helm/kubeScheduler/values.yaml
+  - https://github.com/lablabs/kube-scheduler-helm-chart
 maintainers:
   - name: Labyrinth Labs
     email: contact@lablabs.io

@@ -1,7 +1,3 @@
-{{- define "kube-scheduler.namespace" -}}
-{{- .Release.Namespace }}
-{{- end }}
-
 {{/*
 Create chart name and version as used by the chart label.
 */}}
@@ -35,29 +31,6 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 
 {{/*
-Create the name of the service account
-*/}}
-{{- define "kube-scheduler.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "kube-scheduler.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
-
-{{/*
-Create the name of the config map
-*/}}
-{{- define "kube-scheduler.configMapName" -}}
-{{- if .Values.config.create }}
-{{- default (include "kube-scheduler.fullname" .) .Values.config.name }}
-{{- else }}
-{{- default "default" .Values.config.name }}
-{{- end }}
-{{- end }}
-
-
-{{/*
 Common labels
 */}}
 {{- define "kube-scheduler.labels" -}}
@@ -72,11 +45,42 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 {{- end }}
 
-
 {{/*
 Selector labels
 */}}
 {{- define "kube-scheduler.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "kube-scheduler.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Create the name of the service account
+*/}}
+{{- define "kube-scheduler.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "kube-scheduler.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the config map
+*/}}
+{{- define "kube-scheduler.configMapName" -}}
+{{- default (include "kube-scheduler.fullname" .) .Values.config.name }}
+{{- end }}
+
+{{/*
+Create the name of the cluster role
+*/}}
+{{- define "kube-scheduler.clusterRoleName" -}}
+{{- default (include "kube-scheduler.fullname" .) .Values.rbac.clusterRole.name }}
+{{- end }}
+
+{{/*
+Create the name of the leader election resource
+*/}}
+{{- define "kube-scheduler.leaderElectResourceName" -}}
+{{- printf "%s-leader-election" (include "kube-scheduler.fullname" .) }}
 {{- end }}

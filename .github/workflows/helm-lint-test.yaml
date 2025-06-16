@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   lint-test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2 # pragma: allowlist secret
@@ -35,7 +35,7 @@ jobs:
 
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --validate-maintainers=false --check-version-increment=false
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }} --validate-maintainers=false --check-version-increment=false --lint-conf .yamllint.yaml
 
       - name: Create kind cluster
         if: steps.list-changed.outputs.changed == 'true'
@@ -48,7 +48,7 @@ jobs:
         run: ct install --target-branch ${{ github.event.repository.default_branch }}
 
   linter-artifacthub:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container:
       image: artifacthub/ah
       options: --user root

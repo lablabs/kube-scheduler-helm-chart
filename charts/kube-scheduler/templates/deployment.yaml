@@ -2,16 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "kube-scheduler.fullname" . }}
-  namespace: {{ include "kube-scheduler.namespace" . }}
   labels:
     {{- include "kube-scheduler.labels" . | nindent 4 }}
-  {{- with .Values.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
   selector:
     matchLabels:
       {{- include "kube-scheduler.selectorLabels" . | nindent 6 }}
@@ -54,8 +48,10 @@ spec:
           command:
           - /usr/local/bin/kube-scheduler
           - "--leader-elect={{ if gt (int .Values.replicaCount) 1 }}true{{ else }}false{{ end }}"
+          - "--leader-elect-resource-name={{ include "kube-scheduler.leaderElectResourceName" . }}"
           - "--config=/etc/kubernetes/scheduler-config.yaml"
-          - "-v={{ .Values.logLevel }}"
+          - "--authentication-skip-lookup=true"
+          - "-v={{ int .Values.logLevel }}"
           {{- range .Values.extraArgs }}
           - {{ . | quote }}
           {{- end }}
