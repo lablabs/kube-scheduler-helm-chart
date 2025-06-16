@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   kube-scheduler:
   - apiVersion: v2
-    created: "2025-06-16T17:35:00.955036+02:00"
+    created: "2025-06-16T19:31:01.312069+02:00"
     description: A Helm chart for Kubernetes custom scheduler
-    digest: 10dd8495d619cd8d0275d1a6a59ebac75e9f087cb06b15bac3f2d3875a14e123
+    digest: bcba9c49c3b446fb43a57ccf45f0a93562fa19e602bfad99ff01f19a363f498a
     keywords:
     - k8s
     - kubernetes
@@ -19,6 +19,6 @@ entries:
     sources:
     - https://github.com/lablabs/terraform-aws-eks-kube-scheduler/blob/master/helm/kubeScheduler/values.yaml
     urls:
-    - kube-scheduler-0.1.0.tgz
-    version: 0.1.0
-generated: "2025-06-16T17:35:00.953906+02:00"
+    - kube-scheduler-0.2.0.tgz
+    version: 0.2.0
+generated: "2025-06-16T19:31:01.311561+02:00"
