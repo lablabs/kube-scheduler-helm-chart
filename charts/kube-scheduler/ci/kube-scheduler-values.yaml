@@ -1,0 +1,32 @@
+nameOverride: "custom-kube-scheduler"
+image:
+  tag: "v1.32.3"
+config:
+  # Use create false if you want to use existing configMap
+  create: true
+  # Name of the new or existing ConfigMap
+  name: "custom-kube-scheduler"
+  # A default scheduler config provided for testing below if needed
+  kubeSchedulerConfig: |-
+    apiVersion: kubescheduler.config.k8s.io/v1
+    kind: KubeSchedulerConfiguration
+    leaderElection:
+      leaderElect: false
+    profiles:
+    - schedulerName: project-scheduler
+      plugins:
+        score:
+          disabled:
+          - name: 'NodeResourcesBalancedAllocation'
+          - name: 'NodeResourcesLeastAllocated'
+          - name: 'PodTopologySpread'
+      pluginConfig:
+        - args:
+            scoringStrategy:
+              resources:
+              - name: cpu
+                weight: 1
+              - name: memory
+                weight: 1
+              type: MostAllocated
+          name: NodeResourcesFit
