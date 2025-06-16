@@ -7,7 +7,7 @@ We help companies build, run, deploy and scale software and infrastructure by em
 ---
 
 ## Description
-<$chart-name> Helm chart.
+Kube-Scheduler Helm chart.
 
 Check out [charts/<$chart-name>/README.md](charts/<$chart-name>/README.md) for more details about the chart.
 
