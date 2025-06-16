@@ -23,7 +23,7 @@ A Helm chart for Kubernetes custom scheduler
 | image.tag | string | `""` |  |
 | livenessProbe.httpGet.path | string | `"/healthz"` |  |
 | livenessProbe.httpGet.port | int | `10259` |  |
-| livenessProbe.httpGet.scheme | string | `"HTTP"` |  |
+| livenessProbe.httpGet.scheme | string | `"HTTPS"` |  |
 | logLevel | int | `3` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
@@ -36,7 +36,7 @@ A Helm chart for Kubernetes custom scheduler
 | rbac.extraClusterRoleRules | list | `[]` |  |
 | readinessProbe.httpGet.path | string | `"/healthz"` |  |
 | readinessProbe.httpGet.port | int | `10259` |  |
-| readinessProbe.httpGet.scheme | string | `"HTTP"` |  |
+| readinessProbe.httpGet.scheme | string | `"HTTPS"` |  |
 | replicaCount | int | `1` |  |
 | resources.requests.cpu | string | `"100m"` |  |
 | resources.requests.memory | string | `"128Mi"` |  |
