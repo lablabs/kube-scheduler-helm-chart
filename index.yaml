@@ -2,63 +2,6 @@ apiVersion: v1
 entries:
   kube-scheduler:
   - apiVersion: v2
-    created: "2025-06-17T09:15:43.926670231Z"
-    description: A Helm chart for Kubernetes scheduler
-    digest: 2e81a8b15e2d06af67fed18c6309bfebd25ff3f34c889a9ed2d86574811b8008
-    keywords:
-    - k8s
-    - kubernetes
-    - scheduler
-    - kube-scheduler
-    maintainers:
-    - email: contact@lablabs.io
-      name: Labyrinth Labs
-      url: https://lablabs.io
-    name: kube-scheduler
-    sources:
-    - https://github.com/lablabs/kube-scheduler-helm-chart
-    urls:
-    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-releaser/kube-scheduler-0.2.1-fix-releaser.tgz
-    version: 0.2.1-fix-releaser
-  - apiVersion: v2
-    created: "2025-06-17T09:34:46.472554953Z"
-    description: A Helm chart for Kubernetes scheduler
-    digest: 43709f8e9544cc6118915226d0fea239cef0b78730edb09468c61d1376b76908
-    keywords:
-    - k8s
-    - kubernetes
-    - scheduler
-    - kube-scheduler
-    maintainers:
-    - email: contact@lablabs.io
-      name: Labyrinth Labs
-      url: https://lablabs.io
-    name: kube-scheduler
-    sources:
-    - https://github.com/lablabs/kube-scheduler-helm-chart
-    urls:
-    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-releaser/kube-scheduler-0.2.1-fix-releaser.tgz
-    version: 0.2.1-fix-releaser
-  - apiVersion: v2
-    created: "2025-06-17T07:48:04.450599501Z"
-    description: A Helm chart for Kubernetes scheduler
-    digest: c388130207ceb8eef04ec6ab5a119d45ff671dacd8ec33146b32a2756cbb774f
-    keywords:
-    - k8s
-    - kubernetes
-    - scheduler
-    - kube-scheduler
-    maintainers:
-    - email: contact@lablabs.io
-      name: Labyrinth Labs
-      url: https://lablabs.io
-    name: kube-scheduler
-    sources:
-    - https://github.com/lablabs/kube-scheduler-helm-chart
-    urls:
-    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-patch-cluster-role/kube-scheduler-0.2.1-fix-patch-cluster-role.tgz
-    version: 0.2.1-fix-patch-cluster-role
-  - apiVersion: v2
     created: "2025-06-17T07:49:55.68187195Z"
     description: A Helm chart for Kubernetes scheduler
     digest: e9e915f846f8ccaa5dc110c94fbffc313d64eefef93287a7ecfef8cb0b7e1d33
@@ -75,8 +18,8 @@ entries:
     sources:
     - https://github.com/lablabs/kube-scheduler-helm-chart
     urls:
-    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-patch-cluster-role/kube-scheduler-0.2.1-fix-patch-cluster-role.tgz
-    version: 0.2.1-fix-patch-cluster-role
+    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1/kube-scheduler-0.2.1.tgz
+    version: 0.2.1
   - apiVersion: v2
     created: "2025-06-16T19:31:01.312069+02:00"
     description: A Helm chart for Kubernetes custom scheduler
