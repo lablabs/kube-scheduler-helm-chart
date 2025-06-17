@@ -4,15 +4,18 @@
 nameOverride: ""
 fullnameOverride: ""
 
-revisionHistoryLimit: 10
-logLevel: 3   # INFO, must be numeric as scheduler needs numeric value, 0-Fatal, 1-Error, 2-Warn, 3-Info, 4-Debug, 5-Trace
-
 image:
   repository: registry.k8s.io/kube-scheduler
   pullPolicy: Always
   tag: ""
 
 replicaCount: 1
+
+rbac:
+  create: true
+  clusterRole:
+    name: ""
+    extraRules: []
 
 serviceAccount:
   # Specify, whatever a service account should be created
@@ -27,7 +30,6 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext: {}
-  # fsGroup: 2000
 
 securityContext:
   privileged: false
@@ -39,9 +41,10 @@ securityContext:
     drop:
       - ALL
 
-# Custom extra args
 extraArgs:
-  - "--authentication-skip-lookup=true"
+  # Example flags for customization. Uncomment and modify as needed.
+  # Ensure these flags are supported and correctly handled in deployment.yaml.
+  # - "--authentication-skip-lookup=true"
   # - "--profiling=false"
   # - "--bind-address=0.0.0.0"
 
@@ -55,37 +58,32 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-#   limits:
-#     cpu: 100m
-#     memory: 128Mi
 
 livenessProbe:
   httpGet:
     path: /healthz
     port: 10259
-    scheme: HTTPS  # Use HTTPS if you have TLS enabled, HTTP otherwise
-  # initialDelaySeconds: 10
-  # timeoutSeconds: 15
-  # failureThreshold: 8
-  # periodSeconds: 10
+    scheme: HTTPS # Use HTTPS if you have TLS enabled, HTTP otherwise
+    # initialDelaySeconds: 10
+    # timeoutSeconds: 15
+    # failureThreshold: 8
+    # periodSeconds: 10
 
 readinessProbe:
   httpGet:
     path: /healthz
     port: 10259
-    scheme: HTTPS  # Use HTTPS if scheduler uses TLS, otherwise HTTP
+    scheme: HTTPS # Use HTTPS if scheduler uses TLS, otherwise HTTP
   # initialDelaySeconds: 5
   # timeoutSeconds: 5
   # periodSeconds: 10
   # failureThreshold: 3
 
-
 priorityClassName: ""
+
 nodeSelector: {}
 tolerations: []
-affinity: {}
-# Affinity support tpl variables too, see for example: topologySpreadConstraints
-
+affinity: {} # Affinity support tpl variables too, see for example: topologySpreadConstraints
 topologySpreadConstraints: []
 # Example usage, supports tpl too
 # topologySpreadConstraints:
@@ -95,6 +93,8 @@ topologySpreadConstraints: []
 #     labelSelector:
 #       matchLabels:
 #         app: "{{ .Values.appLabel }}"
+
+logLevel: 3 # INFO, must be numeric as scheduler needs numeric value, 0-Fatal, 1-Error, 2-Warn, 3-Info, 4-Debug, 5-Trace
 
 # ConfigMap related section used by Kube-Scheduler deployment
 config:
@@ -140,8 +140,3 @@ config:
   #             weight: 1
   #           type: MostAllocated
   #       name: NodeResourcesFit
-
-# Define if custom cluster role & cluster role binding is needed
-rbac:
-  create: true
-  extraClusterRoleRules: []
