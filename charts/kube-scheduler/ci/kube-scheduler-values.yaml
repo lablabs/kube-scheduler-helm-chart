@@ -10,23 +10,21 @@ config:
   kubeSchedulerConfig: |-
     apiVersion: kubescheduler.config.k8s.io/v1
     kind: KubeSchedulerConfiguration
-    leaderElection:
-      leaderElect: false
     profiles:
-    - schedulerName: project-scheduler
+    - schedulerName: custom-scheduler
+      pluginApiVersion: kubescheduler.config.k8s.io/v1
       plugins:
         score:
-          disabled:
-          - name: 'NodeResourcesBalancedAllocation'
-          - name: 'NodeResourcesLeastAllocated'
-          - name: 'PodTopologySpread'
+          enabled:
+          - name: NodeResourcesFit
+            weight: 1
       pluginConfig:
-        - args:
-            scoringStrategy:
-              resources:
-              - name: cpu
-                weight: 1
-              - name: memory
-                weight: 1
-              type: MostAllocated
-          name: NodeResourcesFit
+      - args:
+          scoringStrategy:
+            resources:
+            - name: cpu
+              weight: 1
+            - name: memory
+              weight: 1
+            type: MostAllocated
+        name: NodeResourcesFit
