@@ -21,6 +21,25 @@ entries:
     - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-releaser/kube-scheduler-0.2.1-fix-releaser.tgz
     version: 0.2.1-fix-releaser
   - apiVersion: v2
+    created: "2025-06-17T09:34:46.472554953Z"
+    description: A Helm chart for Kubernetes scheduler
+    digest: 43709f8e9544cc6118915226d0fea239cef0b78730edb09468c61d1376b76908
+    keywords:
+    - k8s
+    - kubernetes
+    - scheduler
+    - kube-scheduler
+    maintainers:
+    - email: contact@lablabs.io
+      name: Labyrinth Labs
+      url: https://lablabs.io
+    name: kube-scheduler
+    sources:
+    - https://github.com/lablabs/kube-scheduler-helm-chart
+    urls:
+    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.1-fix-releaser/kube-scheduler-0.2.1-fix-releaser.tgz
+    version: 0.2.1-fix-releaser
+  - apiVersion: v2
     created: "2025-06-17T07:48:04.450599501Z"
     description: A Helm chart for Kubernetes scheduler
     digest: c388130207ceb8eef04ec6ab5a119d45ff671dacd8ec33146b32a2756cbb774f
@@ -78,4 +97,4 @@ entries:
     urls:
     - kube-scheduler-0.2.0.tgz
     version: 0.2.0
-generated: "2025-06-17T09:15:43.926715876Z"
+generated: "2025-06-17T09:34:46.472592544Z"
