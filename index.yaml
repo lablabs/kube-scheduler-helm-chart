@@ -18,8 +18,8 @@ entries:
     sources:
     - https://github.com/lablabs/kube-scheduler-helm-chart
     urls:
-    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace.tgz
-    version: 0.2.2-feat-ati-leaderelect-namespace
+    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.2/kube-scheduler-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     created: "2025-08-20T06:44:28.598409229Z"
     description: A Helm chart for Kubernetes scheduler
