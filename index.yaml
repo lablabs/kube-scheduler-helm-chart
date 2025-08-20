@@ -21,6 +21,25 @@ entries:
     - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace.tgz
     version: 0.2.2-feat-ati-leaderelect-namespace
   - apiVersion: v2
+    created: "2025-08-20T06:44:28.598409229Z"
+    description: A Helm chart for Kubernetes scheduler
+    digest: ed1feaffbde9e75ee1234275a44a111cb537accdc8cf6342738ee8e09ee27b21
+    keywords:
+    - k8s
+    - kubernetes
+    - scheduler
+    - kube-scheduler
+    maintainers:
+    - email: contact@lablabs.io
+      name: Labyrinth Labs
+      url: https://lablabs.io
+    name: kube-scheduler
+    sources:
+    - https://github.com/lablabs/kube-scheduler-helm-chart
+    urls:
+    - https://github.com/lablabs/kube-scheduler-helm-chart/releases/download/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace/kube-scheduler-0.2.2-feat-ati-leaderelect-namespace.tgz
+    version: 0.2.2-feat-ati-leaderelect-namespace
+  - apiVersion: v2
     created: "2025-06-17T07:49:55.68187195Z"
     description: A Helm chart for Kubernetes scheduler
     digest: e9e915f846f8ccaa5dc110c94fbffc313d64eefef93287a7ecfef8cb0b7e1d33
@@ -97,4 +116,4 @@ entries:
     urls:
     - kube-scheduler-0.2.0.tgz
     version: 0.2.0
-generated: "2025-08-20T06:42:58.772046345Z"
+generated: "2025-08-20T06:44:28.59847418Z"
