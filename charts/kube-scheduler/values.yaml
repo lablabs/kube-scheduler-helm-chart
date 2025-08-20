@@ -94,7 +94,7 @@ topologySpreadConstraints: []
 #       matchLabels:
 #         app: "{{ .Values.appLabel }}"
 
-logLevel: 3 # INFO, must be numeric as scheduler needs numeric value, 0-Fatal, 1-Error, 2-Warn, 3-Info, 4-Debug, 5-Trace
+logLevel: 3 # INFO, must be numeric as scheduler needs numeric value: 0-Fatal, 1-Error, 2-Warn, 3-Info, 4-Debug, 5-Trace
 
 # ConfigMap related section used by Kube-Scheduler deployment
 config:
