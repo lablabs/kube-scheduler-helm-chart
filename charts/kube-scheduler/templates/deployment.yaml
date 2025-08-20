@@ -49,6 +49,7 @@ spec:
           - /usr/local/bin/kube-scheduler
           - "--leader-elect={{ if gt (int .Values.replicaCount) 1 }}true{{ else }}false{{ end }}"
           - "--leader-elect-resource-name={{ include "kube-scheduler.leaderElectResourceName" . }}"
+          - "--leader-elect-resource-namespace={{ .Release.Namespace }}"
           - "--config=/etc/kubernetes/scheduler-config.yaml"
           - "--authentication-skip-lookup=true"
           - "-v={{ int .Values.logLevel }}"
