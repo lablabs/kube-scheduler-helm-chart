@@ -9,8 +9,6 @@
 
 # Kube-Scheduler Helm chart
 
-Kube-Scheduler Helm chart.
-
 Check out [README.md](charts/kube-scheduler/README.md) for more details about the chart.
 
 ## Contributing and reporting issues
