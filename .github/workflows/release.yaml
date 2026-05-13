@@ -4,10 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
   push:
-    branches:
-      - main
-    paths:
-      - charts/**
+    tags:
+      - "*"
 
 permissions:
   contents: read
@@ -20,12 +18,15 @@ jobs:
   metadata-collector:
     uses: ./.github/workflows/metadata-collector.yaml
 
+  version-check:
+    uses: ./.github/workflows/version-check.yaml
+
   chart:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
-    needs: metadata-collector
+    needs: [metadata-collector, version-check]
     strategy:
       fail-fast: false
       matrix:
@@ -37,19 +38,22 @@ jobs:
           persist-credentials: false
 
       - name: Set up Helm
-        uses: azure/setup-helm@b9e51907a09c216f16ebe8536097933489208112 # v4.3.0
+        uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4 # v4.3.1
         with:
           version: ${{ env.HELM_VERSION }}
 
       - name: Set up ORAS
-        uses: oras-project/setup-oras@8d34698a59f5ffe24821f0b48ab62a3de8b64b20 # v1.2.3
+        uses: oras-project/setup-oras@22ce207df3b08e061f537244349aac6ae1d214f6 # v1.2.4
+
+      - name: Build Helm dependencies
+        run: scripts/helm-dependency-build.sh $CHART_NAME
+        env:
+          CHART_NAME: ${{ matrix.chart }}
 
       - name: Publish Helm chart
-        # FIXME config: Add dependency repositories
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ghcr.io --username ${GITHUB_ACTOR} --password-stdin
 
-          helm dependency build charts/${CHART_NAME}
           helm package charts/${CHART_NAME}
           helm push "$(realpath ${CHART_NAME}-*.tgz)" oci://ghcr.io/${REPOSITORY_NAME}
 
