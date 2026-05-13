@@ -135,6 +135,9 @@ rules:
   - storage.k8s.io
   resources:
   - csinodes
+  - csidrivers
+  - csistoragecapacities
+  - storageclasses
   verbs:
   - get
   - list
