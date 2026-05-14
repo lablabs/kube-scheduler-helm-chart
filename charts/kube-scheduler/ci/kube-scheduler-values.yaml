@@ -1,6 +1,6 @@
 nameOverride: "custom-kube-scheduler"
 image:
-  tag: "v1.32.3"
+  tag: "v1.34.5"
 config:
   # Use create false if you want to use existing configMap
   create: true
