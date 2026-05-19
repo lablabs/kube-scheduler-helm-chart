@@ -2,10 +2,9 @@ name: Release
 
 on:
   workflow_dispatch:
-  pull_request:
   push:
     tags:
-      - "*"
+      - '*'
 
 permissions:
   contents: read
